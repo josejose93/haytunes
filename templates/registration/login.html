@@ -1,31 +1,41 @@
 {% extends 'base_generic.html' %}
-
+<header class="header-area">
+    {% block navbar %}
+        {% include 'base_nav.html' %}
+    {% endblock %}
+</header>
+{% block pagina_titulo %}
+    <p>See what’s new</p>
+    <h2>Login</h2>
+{% endblock %}
 {% block content %}
-    <div class="signup-form">
-    {% if user.is_authenticated %}
-        Se encuentra logueado
-    {% else %}
-    <form action="{% url 'login' %}" method="post">
-        {% csrf_token %}
-		<h2>Login</h2>
-            {% load app_filters %}
-            <div class="form-group">
-			    <div class="input-group">
-				    <span class="input-group-addon"><i class="fa fa-user"></i></span>
-				    {{ form.username|addplaceholder:"Username" }}
-			    </div>
-                <div class="input-group">
-				    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-				    {{ form.password|addplaceholder:"Password" }}
-			    </div>
+    <section class="login-area section-padding-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-8">
+                    <div class="login-content">
+                        <h3>Welcome Back</h3>
+                        <!-- Login Form -->
+                        <div class="login-form">
+                            <form action="{% url 'login' %}" method="post">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    {% load app_filters %}
+                                    <label for="id_username">Username</label>
+                                    {{ form.username|addplaceholder:"Username" }}
+                                    <small id="emailHelp" class="form-text text-muted"><i class="fa fa-lock mr-2"></i>We'll never share your email with anyone else.</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="id_password">Password</label>
+                                    {{ form.password|addplaceholder:"Password" }}
+                                </div>
+                                <button type="submit" class="btn oneMusic-btn mt-30">Login</button>
+                                <input type="hidden" value="{{ next }}">
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
-		    <div class="form-group">
-                <input type="submit" value="login">
-                <input type="hidden" value="{{ next }}">
-            </div>
-		    <p class="small text-center">By clicking the Sign Up button, you agree to our <br><a href="#">Terms &amp; Conditions</a>, and <a href="#">Privacy Policy</a>.</p>
-    </form>
-	<div class="text-center">Lost Password? <a href="{% url 'password_reset' %}">Reset password here</a>.</div>
-    {% endif %}
-    </div>
+        </div>
+    </section>
 {% endblock %}

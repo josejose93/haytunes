@@ -15,6 +15,7 @@ def addcss(field, css):
             attrs[t] = v
     return field.as_widget(attrs=attrs)
 
+
 @register.filter(name='addplaceholder')
 def addplaceholder(field, css):
     attrs = {}
