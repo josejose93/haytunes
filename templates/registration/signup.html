@@ -65,18 +65,22 @@
                                 {% for field in form %}
                                     <div class="form-group">
                                         {% if field.html_name == 'username' %}
+                                            <span class="text-danger small">{{ field.errors }}</span>
                                             <span class="input-group-addon"><i class="fa fa-user"></i></span>
                                             <label for="id_username">Username</label>
                                             {{ field|addplaceholder:"Username" }}
                                         {% elif field.html_name == 'email'%}
+                                            <span class="text-danger small">{{ field.errors }}</span>
                                             <span class="input-group-addon"><i class="fa fa-paper-plane"></i></span>
                                             <label for="id_email">Email</label>
                                             {{ field|addplaceholder:"Email Adress" }}
                                         {% elif field.html_name == 'password1' %}
+                                            <span class="text-danger small">{{ field.errors }}</span>
                                             <span class="input-group-addon"><i class="fa fa-lock"></i></span>
                                             <label for="id_password1">Password</label>
                                             {{ field|addplaceholder:"Password" }}
                                         {% else %}
+                                            <span class="text-danger small">{{ field.errors }}</span>
                                             <span class="input-group-addon">
 					                        <i class="fa fa-lock"></i>
 					                        <i class="fa fa-check"></i>
