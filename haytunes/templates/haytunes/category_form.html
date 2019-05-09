@@ -6,7 +6,7 @@
 </header>
 {% block pagina_titulo %}
     <p>See what’s new</p>
-    <h2>Actualizar Perfil</h2>
+    <h2>Crear Categoría</h2>
 {% endblock %}
 {% block content %}
     <div class="container">
@@ -22,12 +22,12 @@
 
           </tr>
       </thead>
-            {{ user_form.as_table }}
+            {{ form.as_table }}
         </table>
         <input type="submit" value="Submit" class="btn oneMusic-btn mt-30">
         </form>
     <div class="single-artists d-flex justify-content-center align-items-center wow fadeInUp mt-0 mb-15 m-auto" data-wow-delay="100ms">
-        <a href="{% url 'profile' %}" class="btn oneMusic-btn mt-30">Regresar </a>
+        <a href="{% url 'categories' %}" class="btn oneMusic-btn mt-30">Regresar </a>
     </div>
     </div>
     <hr>
