@@ -95,6 +95,7 @@ class CategoryDelete(PermissionRequiredMixin, DeleteView):
 
 class ProductListView(generic.ListView):
     model = Product
+    paginate_by = 10
 
 
 class ProductDetailView(generic.DetailView):
